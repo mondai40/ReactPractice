@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="./vanilla.js"></script>
+    <title>REST API</title>
+</head>
+<body>
+    <script>
+        //1. Get(yesterday recap)
+        // fetch("https://api.github.com/users/zellwk/repos")
+        //     .then((response) => {return response.json()})
+        //     .then((result) => {console.log(result)})
+        //     .catch(err => console.log(err));
+
+        // fetch("https://jsonplaceholder.typicode.com/posts")
+        //     .then((response) => {return response.json()})
+        //     .then((result) => {console.log(result)})
+        //     .catch(err => console.log(err));
+
+        //2.POST
+        // fetch("https://jsonplaceholder.typicode.com/posts", {
+        //     method: "POST",
+        //     body: JSON.stringify({
+        //         title: "post test",
+        //         body: "post test",
+        //         userId: 6
+        //     }),
+        //     headers: {
+        //         "Content-type": "application/json; charset=UTF-8"
+        //     }
+        // }).then(response => response.json())
+        // .then(result => console.log(result));
+
+        //3.PUT(edit)
+        // fetch("https://jsonplaceholder.typicode.com/posts/8", {
+        //     method: "PUT",
+        //     body: JSON.stringify({
+        //         title: "change title test",
+        //         id: 1,
+        //         userId: 40
+        //     }),
+        //     headers: {
+        //         "Content-type": "application/json; charset=UTF-8"
+        //     }
+        // }).then(response => response.json())
+        // .then(result => console.log(result));
+
+        //Request constructor
+        // const request = new Request("https://www.yahoo.co.jp", {method: "GET"});
+        // const URL = request.url;
+        // const method = request.method;
+        // const credentials = request.credentials;
+        // const bodyUsed = request.bodyUsed;
+        // console.log(URL);
+        // console.log(method);
+        // console.log(credentials);
+        // console.log(bodyUsed);
+        // console.log(request);
+        
+        //Header
+        // var authorName = "Shin Daimon";
+        // var myHeader = new Headers();
+        // myHeader.append("Author", authorName);
+        
+        //URLParamSearch
+        // let url = new URL(window.location);
+        // console.log(url);
+        // console.log(url.href);
+        // console.log(url.pathname);
+        // console.log(url.searchParams.toString());
+        //     //get query strings
+        //     let params = new URLSearchParams(window.location.search);
+        //     console.log(params.toString());
+        //     //change a path
+        //     url.pathname = "wavescoffee.html";
+        //     console.log(url.pathname);
+        
+        //Change object into query string
+        const object = {name: "Shin", age: 32};
+        console.log(object);
+        const queryString = Object.keys(object).map(key => key + "=" + object[key]).join("&");
+        console.log(queryString);
+    </script>
+</body>
+</html>
