@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="./functions/api_key.js"></script>
+    <title>REST API</title>
+</head>
+<body>
+    <script>
+        //SuperHero API
+        const endpoint = "https://cors-anywhere.herokuapp.com/https://superheroapi.com/api/" + api_key.SuperHero;
+
+        function clickHero() {
+            const heroName = document.getElementById("heroName").value;
+            console.log(heroName);
+            fetch(endpoint + "/search/" + heroName, {
+            // method: "GET",
+            }).then(response => response.json())
+            .then(result => showCharacter(result))
+            .catch(error => console.log(error));
+        }
+        function showCharacter(result) {
+            console.log(result);
+            const heroData = document.getElementById("heroData");
+            const list = result.results.map((result) => {
+                const listHtml = `<div>${result.name}<img src="${result.image.url}" /></div>`
+                heroData.insertAdjacentHTML("beforeend", listHtml);
+            });
+        }
+        
+    </script>
+    <input id="heroName" type="text" placeholder="Hero Name"/>
+    <button onclick="clickHero()">Search</button>
+    <div id="heroData"></div>
+</body>
+</html>

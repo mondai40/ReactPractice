@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="./vanilla.js"></script>
+    <script src="./functions/api_key.js"></script>
     <title>REST API</title>
 </head>
 <body>
@@ -79,10 +79,59 @@
         //     console.log(url.pathname);
         
         //Change object into query string
-        const object = {name: "Shin", age: 32};
-        console.log(object);
-        const queryString = Object.keys(object).map(key => key + "=" + object[key]).join("&");
-        console.log(queryString);
+        // const object = {name: "Shin", age: 32};
+        // console.log(object);
+        // const queryString = Object.keys(object).map(key => key + "=" + object[key]).join("&");
+        // console.log(queryString);
+
+        //Weather API
+        // const endpoint = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/north-india-restaurant-san-francisco";
+        // fetch(endpoint, {
+        //     // method: "GET",
+        //     headers: {
+        //         "Authorization": "Bearer " + api_key.YELP
+        //     }
+        // }).then(response => response.json())
+        // .then(result => console.log(result))
+        // .catch(error => console.log(error));
+
+        //Weather API
+        // endpoint = "https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/weather?q=Vancouver";
+        // fetch(endpoint, {
+        //     // method: "GET",
+        //     headers: {
+        //         "X-API-Key": api_key.Weather
+        //     }
+        // }).then(response => response.json())
+        // .then(result => console.log(result))
+        // .catch(error => console.log(error));
+
+        //SuperHero API
+        const endpoint = "https://cors-anywhere.herokuapp.com/https://superheroapi.com/api/" + api_key.SuperHero;
+
+        function clickHero() {
+            const heroName = document.getElementById("heroName").value;
+            console.log(heroName);
+            fetch(endpoint + "/search/" + heroName, {
+            // method: "GET",
+            }).then(response => response.json())
+            .then(result => showCharacter(result))
+            .catch(error => console.log(error));
+        }
+        function showCharacter(result) {
+            console.log(result);
+            const heroData = document.getElementById("heroData");
+            const list = result.results.map((result) => {
+                const listHtml = `<div>${result.name}<img src="${result.image.url}" /></div>`
+                heroData.insertAdjacentHTML("beforeend", listHtml);
+            });
+        }
+        
     </script>
+    <input id="heroName" type="text" placeholder="Hero Name"/>
+    <button onclick="clickHero()">Search</button>
+    <div id="heroData">
+        
+    </div>
 </body>
 </html>
