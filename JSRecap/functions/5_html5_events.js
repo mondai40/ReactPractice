@@ -21,6 +21,7 @@ function handleFormClick(event) {
     list.appendChild(newLine);
 
     document.getElementById("nameInput").value = ""; //clear input
+    document.getElementById("nameInput").value = ""; //clear input
 }
 
 const handleInputChange = (event) => {
