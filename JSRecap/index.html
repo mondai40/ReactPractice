@@ -6,22 +6,23 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
-<body>
+<body onfullscreenchange="cancel()">
     <!-- <script src="./functions/1_intro_js.js"> -->
     <!-- <script src="./functions/2_loop_function.js"></!-->
     <!-- <script src="./functions/3_es6_function.js"></script> -->
     <!-- <script src="./functions/4_advanced_js.js"></script> -->
     <!-- <script src="./functions/5_html5_events.js"></script> -->
-    <h1 onmouseover="handleMouseOver()" onmouseout="handleMouseOut()">Title</h1>
+    <!-- <h1 onmouseover="handleMouseOver()" onmouseout="handleMouseOut()">Title</!--> -->
     <button onclick="handleClick()">Click Here</button>
     <form>
         <input id="nameInput" type="text" name="name" placeholder="ex: Shin" onkeypress="handleInputChange(event)" onfocus="handleFocus()" onblur="handleBlur()" />
-        <button onclick="handleFormClick(event)">Submit</button>
+        <!-- <button onclick="handleFormClick(event)">Submit</button> -->
     </form>
 
     <ul id="NameLists">
         <li>Isao</li>
     </ul>
+    <p id="message" ></p>
     <script>
         // const array = ["sheep", "sheep", "wolf"];
         // const wolfpos = array.indexOf("wolf");
@@ -43,6 +44,10 @@
         const arrNum = [1, 2, 3, 4, 5, 6];
         const [a, b, , , c] = arrNum;
         console.log(a, b, c);
+
+        function cancel() {
+            alert("Closed by ESC key.");
+        }
     </script>
 </body>
 </html>
