@@ -1,16 +1,41 @@
-import React from "react";
-import ReactDOM from "react-dom";
+import React, {Component} from "react";
+import {render} from "react-dom";
 
-const style = {
-    backgroundColor: "orange",
-    color: "white",
-    fontFamily: "Arial"
+let skiData = {
+    total: 50,
+    powder: 20,
+    backCountry: 10,
+    goal: 100,
 };
 
-ReactDOM.render(
-    <div style={style}>
-        <h1 id="heading-element">Hello World</h1>
-        <p>We're glad to you're here!</p>
-    </div>,
+class SkiDay extends Component {
+    render() {
+        const {total, powder, backCountry, goal} = this.props;
+        return(
+            <section>
+                <div>
+                    <p>Total Days: {total}</p>
+                </div>
+                <div>
+                    <p>Powder Days: {powder}</p>
+                </div>
+                <div>
+                    <p>Backcountry Days: {backCountry}</p>
+                </div>
+                <div>
+                    <p>Goal Days: {goal}</p>
+                </div>
+            </section>
+        );
+    }
+}
+
+render(
+    <SkiDay 
+        total={skiData.total}
+        powder={skiData.powder}
+        backCountry={skiData.backCountry}
+        goal={skiData.goal}
+    />,
     document.getElementById("root")
 );
