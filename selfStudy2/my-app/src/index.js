@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React from "react";
 import {render} from "react-dom";
 
 const bookList = [
@@ -61,12 +61,12 @@ class Library extends React.Component {
                 {this.state.loading
                     ? "loading..."
                     :   <div>
-                            {this.state.data.map((product, key) => {
+                            {this.state.data.map((product) => {
                                 return(
-                                    <div key={key}>
+                                    <div key={product.id}>
                                         <h3>Library Product of the Week!</h3>
                                         <h4>{product.name}</h4>
-                                        <img src={product.image} alt="product_image" height={100}/>
+                                        <img src={product.image} alt={product.name} height={100}/>
                                     </div>
                                 );
                             })}
