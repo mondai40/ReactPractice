@@ -89,11 +89,29 @@ import {render} from "react-dom";
 // }
 
 class FavoriteColorForm extends React.Component {
+    
+    state = {
+        value: ""
+    };
+
+    newColor = e => {
+        this.setState({
+            value: e.target.value
+        });
+    }
+
+    submit = e=> {
+        console.log("New Color: ", this.state.value);
+        e.preventDefault();
+    }
+
+
     render() {
         return(
-            <form action="">
+            <form onSubmit={this.submit}>
                 <label htmlFor="">Favorite Color: 
-                    <input type="color" />
+                    <input type="color" onChange={this.newColor}/>
+                    <button>Submit</button>
                 </label>
             </form>
         );
